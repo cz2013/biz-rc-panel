@@ -1,0 +1,69 @@
+{
+  "name": "demo",
+  "alias": [
+    "demo"
+  ],
+  "version": "0.0.1",
+  "description": "A demo ",
+  "author": {
+    "name": "chenzhen",
+    "email": "chenzhen202130@sogou-inc.com"
+  },
+  "main": "app.js",
+  "scripts": {
+    "start": "bizdp start",
+    "server": "bizdp server",
+    "clean": "rimraf dist",
+    "build:profile": "cross-env NODE_ENV=dev webpack --progress --profile --display-modules",
+    "build:product": "cross-env NODE_ENV=product webpack",
+    "profile": "npm run clean && npm run build:profile",
+    "pub": "npm run clean && npm run build:product"
+  },
+  "dependencies": {
+    "react": "^15.0.0",
+    "react-dom": "^15.0.0",
+    "react-addons-css-transition-group": "15.6.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.4.5",
+    "babel-loader": "^6.2.1",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-0": "^6.3.13",
+    "css-loader": "^0.23.1",
+    "rimraf": "^2.5.0",
+    "style-loader": "^0.13.0",
+    "file-loader": "0.9.0",
+    "url-loader": "0.5.7",
+    "webpack": "1.12.9",
+    "webpack-dev-server": "1.14.0"
+  },
+  "globalDevDependencies": {
+    "webpack": "1.12.9",
+    "webpack-dev-server": "1.14.0",
+    "jshint": "2.8.0"
+  },
+  "bizdp": {
+    "npm": {
+      "command": "npm",
+      "registry": "http://registry.npm.sogou"
+    },
+    "build": {
+      "command": "webpack",
+      "options": {
+        "config": "webpack.config.js",
+        "progress": true
+      }
+    },
+    "server": {
+      "command": "webpack-dev-server",
+      "options": {
+        "hot": true,
+        "color": true,
+        "inline": true,
+        "progress": true
+      }
+    }
+  },
+  "license": "MIT"
+}

@@ -8,50 +8,70 @@ React Panel Component.
 * support ie9,ie9+,chrome,firefox,safari
 ## Demo
 
-直接打开example文件夹中html即可看效果
+访问[github](https://github.com/cz2013/biz-rc-panel)
+example文件夹中启动工程即可查看效果
 
 ## Usage
+
 两种使用方式
 
 1、作为react UI组件直接在render中引入:
 ```js
-var panel = require('@bizfe/biz-rc-panel');
-var React = require('react');
+import React from 'react';
+import { render } from 'react-dom';
+import Panel from '@bizfe/biz-rc-panel';
 
-var config = {
-    customClass: "userPanelBox",
-    titleAble: false,
-    buttonsAble: false,
+const config = {
+    customClass: "",
+    titleAble: true,
+    buttonsAble: true,
+    top: 55,
     leftCloseAble: true,
     onBeforeClose: function () {
-        console.log('before close');
+        console.log('关闭前运行');
         return true;
-    },
-    content:<div>弹窗内容</div>
+    }
 };
-React.render(<Panel  {...config}/>, container);
+
+render(
+    //由React-Redux提供的Provider组件传入store对象，
+    //让通过connect方法生成的容器组件拿到state
+    <Panel {...config}
+           content ={
+               <div>自定义内容</div>
+           }
+    />,
+    document.getElementById('mainBox')
+);
 ```
 2、在react组件中被作为方法调用，直接生成panel UI组件插入到相关dom中:
 ```js
-var panel = require('@bizfe/biz-rc-panel');
-var React = require('react');
+import React from 'react';
+import Panel from '@bizfe/biz-rc-panel';
 
-var config = {
-    customClass: "userPanelBox",
-    titleAble: false,
-    buttonsAble: false,
+const config = {
+    customClass: "",
+    titleAble: true,
+    buttonsAble: true,
+    top: 55,
     leftCloseAble: true,
     onBeforeClose: function () {
-        console.log('before close');
+        console.log('关闭前运行');
         return true;
     },
     content:<div>弹窗内容</div>
 };
+
 Panel.open(config, document.getElementById('mainBox'));
+
 ```
+
 这种方式可能会涉及到关闭panel弹窗的方法调用：
+
 ```js
+
 Panel.close(document.getElementById('mainBox'));
+
 ```
 
 ## API
