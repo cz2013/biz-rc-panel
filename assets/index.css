@@ -1,0 +1,186 @@
+/**
+ * React Panel Component - css
+ * @Author: chenzhen
+ * @Date:   2017-07-18
+ */
+
+.biz-panel {
+    position: fixed;
+
+    width: 100%;
+    height: 100%;
+}
+
+.biz-panel-margin {
+    float: left;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.biz-panel-wrap{
+    height: 100%;
+    padding-left:35px;
+    position: relative;
+    background-color: transparent;
+    overflow-y: auto;
+}
+.biz-panel-body {
+    min-height:100%;
+    position:relative;
+    background-color: #fff;
+    box-shadow: -8px 0 16px #bbb;
+}
+
+.biz-panel-title {
+    position: relative;
+    padding: 13px 20px;
+    border-radius: 4px 4px 0 0;
+    background: #f2f2f4;
+    color: rgba(0,0,0,.65);
+}
+
+.biz-panel-title-text {
+    margin: 0;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 500;
+    color: rgba(0,0,0,.85);
+}
+.biz-panel-close {
+    cursor: pointer;
+    border: 0;
+    background: transparent;
+    position: absolute;
+    right:0;
+    top: 0;
+    z-index: 10;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    -webkit-transition: color .3s ease;
+    transition: color .3s ease;
+    color: rgba(0,0,0,.43);
+    outline: 0;
+}
+.biz-panel-close:focus,.biz-panel-close:hover{color:#444;text-decoration:none}
+.biz-panel-close-x{
+    display: block;
+    font-style: normal;
+    vertical-align: baseline;
+    text-align: center;
+    text-transform: none;
+    text-rendering: auto;
+    width:48px;
+    height:48px;
+    line-height:55px;
+    font-size: 18px;
+}
+.biz-panel-close-x:before {
+    content: "\E633";
+    display: block;
+    font-family: anticon!important;
+}
+
+.biz-panel-content {
+    padding: 25px;
+    min-height: 200px;
+}
+
+.biz-panel-bottom {
+
+    border-top: 1px solid #e9e9e9;
+    padding: 15px 20px;
+    line-height: 30px;
+    text-align: center;
+}
+.biz-panel-bottom button+button {
+    margin-left: 8px;
+    margin-bottom: 0;
+}
+.biz-button-lg {
+    padding: 0 15px;
+    border-radius: 4px;
+}
+.biz-button, .biz-button:active, .biz-button:focus {
+    outline: 0;
+}
+.biz-button {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 500;
+    text-align: center;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    line-height: 1.5;
+    padding: 0 15px;
+    font-size: 14px;
+    border-radius: 4px;
+    height: 32px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transition: all .3s cubic-bezier(.645,.045,.355,1);
+    transition: all .3s cubic-bezier(.645,.045,.355,1);
+    position: relative;
+    color: rgba(0,0,0,.65);
+    background-color: #fff;
+    border-color: #d9d9d9;
+}
+
+.biz-panel-leftClose{
+    position: fixed;
+    top: 20px;
+    margin-left:-35px;
+    width:35px;
+    height:65px;
+    font-size:20px;
+    text-align: center;
+    color:#333;
+    z-index:803;
+    background:url(panel-close.png) left no-repeat;
+}
+.biz-panel-leftClose:before {
+    line-height:55px;
+    content: "\E633";
+    display: inline-block;;
+    font-family: anticon!important;
+}
+
+/* 遮罩层 */
+.biz-mask{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #d7d7d7;
+    background-color: rgba(0,0,0,.16);
+    height: 100%;
+    z-index: 800;
+    filter: alpha(opacity=50);
+}
+
+/*动画效果*/
+.panelAnimate-appear {
+    opacity: 0;
+    transform: translate(5%, 0);
+}
+.panelAnimate-appear.panelAnimate-appear-active {
+    opacity: 1;
+    transform: translate(0, 0);
+    transition: opacity 150ms linear, transform 200ms ease-out;
+}
+.panelAnimate-leave {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+.panelAnimate-leave.panelAnimate-leave-active {
+    opacity: 0;
+    transform: translate(5%, 0);
+    transition: opacity 150ms linear, transform 200ms ease-out;
+}
