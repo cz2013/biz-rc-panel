@@ -76,8 +76,9 @@
     font-size: 18px;
 }
 .biz-panel-close-x:before {
-    content: "\2716";
+    content: "\E633";
     display: block;
+    font-family: anticon!important;
 }
 
 .biz-panel-content {
@@ -145,8 +146,9 @@
 }
 .biz-panel-leftClose:before {
     line-height:55px;
-    content: "\2716";
+    content: "\E633";
     display: inline-block;;
+    font-family: anticon!important;
 }
 
 /* 遮罩层 */
